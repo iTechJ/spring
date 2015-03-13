@@ -1,0 +1,25 @@
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <definition name="index" template="/WEB-INF/pages/layout/layout.jsp">
+        <put-attribute name="header" value="/WEB-INF/pages/layout/header.jsp"/>
+    </definition>
+
+    <definition name="welcome" extends="index">
+        <put-attribute name="body" value="/WEB-INF/pages/welcome/welcome.jsp"/>
+        <put-attribute name="title-key" value="system.name"/>
+    </definition>
+
+    <definition name="books" extends="index">
+        <put-attribute name="body" value="/WEB-INF/pages/books/books.jsp"/>
+        <put-attribute name="title-key" value="books.page.title"/>
+    </definition>
+
+    <definition name="admin-users" extends="index">
+        <put-attribute name="body" value="/WEB-INF/pages/admin/users.jsp"/>
+        <put-attribute name="title-key" value="users.page.title"/>
+    </definition>
+
+</tiles-definitions>
+

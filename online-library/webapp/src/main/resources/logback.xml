@@ -1,0 +1,21 @@
+<!-- Use 'log' prefix for all properties with logback's scope to avoid substitution during building -->
+<configuration scan="true" scanPeriod="30 seconds">
+    <jmxConfigurator/>
+    <property name="log.encoder.pattern.console" value="%date{HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n"/>
+    <property name="log.encoder.charset" value="cp1251"/>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${log.encoder.pattern.console}</pattern>
+            <charset>${log.encoder.charset}</charset>
+        </encoder>
+    </appender>
+
+    <logger name="com.itechart.library" level="info"/>
+    <logger name="org.springframework" level="info"/>
+
+    <root level="info">
+        <appender-ref ref="console"/>
+    </root>
+
+</configuration>
