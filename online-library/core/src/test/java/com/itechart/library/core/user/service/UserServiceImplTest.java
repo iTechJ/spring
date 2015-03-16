@@ -9,7 +9,6 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 
 
 public class UserServiceImplTest extends CommonTransactionalSpringTest {
@@ -73,5 +72,36 @@ public class UserServiceImplTest extends CommonTransactionalSpringTest {
     public void testFindByRole() {
         Iterable<User> admins = userService.findByRole(TEST_ROLE);
         Assert.assertFalse(Iterables.isEmpty(admins));
+    }
+
+    @Test
+    public void testCreate() {
+        CreateUserInfo userInfo = new CreateUserInfo("login", "pass", "last", "first");
+        User user = userService.create(userInfo);
+        Assert.assertNotNull(user);
+        Assert.assertNotNull(user.getId());
+        Assert.assertTrue(user.getId() > 0);
+
+        Assert.assertEquals(userInfo.getLogin(), user.getLogin());
+        assertUserInfo(userInfo, user);
+
+        User foundUser = userService.find(user.getId());
+        Assert.assertNotNull(foundUser);
+    }
+
+    private void assertUserInfo(UserInfo userInfo, User user) {
+        Assert.assertEquals(userInfo.getPassword(), user.getPassword());
+        Assert.assertEquals(userInfo.getLastName(), user.getLastName());
+        Assert.assertEquals(userInfo.getFirstName(), user.getFirstName());
+    }
+
+    @Test
+    public void testUpdate() {
+        UserInfo userInfo = new UserInfo("pass", "last", "first");
+        User user = userService.update(TEST_USER_ID, userInfo);
+        Assert.assertNotNull(user);
+        Assert.assertEquals(TEST_USER_ID, user.getId().longValue());
+
+        assertUserInfo(userInfo, user);
     }
 }

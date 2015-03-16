@@ -6,6 +6,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface UserService {
+    User create(CreateUserInfo createUserInfo);
+
+    User update(long userId, UserInfo createUserInfo);
+
+    User find(long id);
+
     User findByLogin(String login);
 
     Iterable<User> findAll();

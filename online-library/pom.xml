@@ -197,6 +197,13 @@
                 <version>3.0.1</version>
             </dependency>
 
+            <!-- javax validation -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>5.1.3.Final</version>
+            </dependency>
+
             <!-- Appache Commons -->
             <dependency>
                 <groupId>org.apache.commons</groupId>

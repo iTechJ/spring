@@ -1,11 +1,9 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
-<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 
-<h2><spring:message code="users.page.title"/></h2>
+<h3><spring:message code="users.page.title"/></h3>
 
 <table class="table" style="margin-top: 20px">
     <tr>
@@ -17,7 +15,11 @@
     </tr>
     <c:forEach items="${users}" var="user">
         <tr>
-            <td class="col-md-2">${user.login}</td>
+            <td class="col-md-2">
+                <a href="${pageContext.request.contextPath}/admin/users/${user.id}/editing">
+                        ${user.login}
+                </a>
+            </td>
             <td class="col-md-2">${user.lastName}</td>
             <td class="col-md-2">${user.firstName}</td>
             <td class="col-md-1 text-center">
@@ -29,3 +31,8 @@
         </tr>
     </c:forEach>
 </table>
+<div class="btn-group">
+    <a class="btn btn-default" href="${pageContext.request.contextPath}/admin/users/creating">
+        <spring:message code="users.page.create"/>
+    </a>
+</div>

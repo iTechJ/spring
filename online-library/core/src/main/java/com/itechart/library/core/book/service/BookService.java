@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface BookService {
 
-    Book find(Long id);
+    Book find(long id);
 
     Iterable<Book> findAll();
 

@@ -21,5 +21,10 @@
         <put-attribute name="title-key" value="users.page.title"/>
     </definition>
 
+    <definition name="admin-user" extends="index">
+        <put-attribute name="body" value="/WEB-INF/pages/admin/user.jsp"/>
+        <put-attribute name="title-key" value="users.page.title"/>
+    </definition>
+
 </tiles-definitions>
 

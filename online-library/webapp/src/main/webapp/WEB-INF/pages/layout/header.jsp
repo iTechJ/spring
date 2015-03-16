@@ -40,8 +40,8 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         <spring:message code="header.lang"/><span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="?lang=ru"><spring:message code="header.lang.ru"/></a></li>
-                        <li><a href="?lang=en"><spring:message code="header.lang.en"/></a></li>
+                        <li><a href="${pageContext.request.contextPath}?lang=ru"><spring:message code="header.lang.ru"/></a></li>
+                        <li><a href="${pageContext.request.contextPath}?lang=en"><spring:message code="header.lang.en"/></a></li>
                     </ul>
                 </li>
             </ul>
