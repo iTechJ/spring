@@ -9,7 +9,6 @@ import com.mysema.query.types.path.StringPath;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Repository;
 
-@Repository
 public interface UserRepository extends EntityRepository<User>,UserRepositoryCustom {
     User findFirstByLogin(String login);
 

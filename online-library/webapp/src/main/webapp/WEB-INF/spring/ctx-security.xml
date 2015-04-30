@@ -4,7 +4,7 @@
              xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
              http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
-    <http access-denied-page="/access-denied" use-expressions="true" >
+    <http access-denied-page="/access-denied" use-expressions="true">
         <intercept-url pattern="/js/**" access="permitAll()"/>
         <intercept-url pattern="/css/**" access="permitAll()"/>
         <intercept-url pattern="/img/**" access="permitAll()"/>
